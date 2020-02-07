@@ -29,4 +29,4 @@ Licence
 Authors
 -------
 
-`pytims` was written by `Natu Lauchande <nlauchande at google mail>`_.
+`pytims` was written bythe following authors :  `Natu Lauchande <nlauchande at google mail>`_.
