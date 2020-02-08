@@ -4,6 +4,7 @@ class Tree(object):
         self.right = None
         self.data = None
 
+
 root = Tree()
 root.data = "root"
 root.left = Tree()

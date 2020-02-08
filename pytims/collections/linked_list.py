@@ -1,87 +1,88 @@
-'''This module implements  a specialized linked lists container datatypes providing
+"""This module implements  a specialized linked lists container datatypes providing
 alternatives to Python's general purpose built-in containerslist
 
 * LinkedList   factory function for creating tuple subclasses with named fields
 
-'''
+"""
 
-__all__ = ['LinkedList']
+__all__ = ["LinkedList"]
+
 
 class Node:
-	
-	def __init__(self,data):
-		self.next=None
-		self.data = data
+    def __init__(self, data):
+        self.next = None
+        self.data = data
 
-	def __repr__(self):
-		return self.data
+    def __repr__(self):
+        return self.data
 
-	def __eq__(self, obj):
-		return isinstance(obj, Node) and obj.data == self.data
-		
+    def __eq__(self, obj):
+        return isinstance(obj, Node) and obj.data == self.data
+
+
 class LinkedList:
+    def __init__(self):
+        self._current = None
+        self._head = None
 
-	def __init__(self):
-		self._current = None
-		self._head = None
-	
-	def insert(self, data):
-		current = Node(data)
+    def insert(self, data):
+        current = Node(data)
 
-		if self._head != None:
-			current.next = self._head
-		
-		self._head = current
+        if self._head != None:
+            current.next = self._head
 
-		current = self._head
+        self._head = current
 
-	def remove(self, data):
+        current = self._head
 
-		nodeToFind = Node(data)
+    def remove(self, data):
 
-		if self._head == nodeToFind:
-			self._head = self._head.next			
-		else:
-			current = self._head
-			while current.next!=nodeToFind  and current.next!=None :
-				current = current.next
-			
-			if current.next==nodeToFind:
-				current.next = current.next.next
-				return True
-			else:
-				return False
+        nodeToFind = Node(data)
 
-	def __iter__(self):
-		self._current = self._head
-		return self
+        if self._head == nodeToFind:
+            self._head = self._head.next
+        else:
+            current = self._head
+            while current.next != nodeToFind and current.next != None:
+                current = current.next
 
-	def __next__(self):
+            if current.next == nodeToFind:
+                current.next = current.next.next
+                return True
+            else:
+                return False
 
-		if self._current == None:
-			  raise StopIteration
+    def __iter__(self):
+        self._current = self._head
+        return self
 
-		result = self._current
+    def __next__(self):
 
-		self._current = self._current.next
+        if self._current == None:
+            raise StopIteration
 
-		return result
+        result = self._current
+
+        self._current = self._current.next
+
+        return result
+
 
 if __name__ == "__main__":
-	linked_list = LinkedList()
-	
-	linked_list.insert("10")
-	linked_list.insert("30")
-	linked_list.insert("15")
-	linked_list.insert("40")
-	linked_list.insert("50")
+    linked_list = LinkedList()
 
-	print("After insertion: \n")
-	for i in iter(linked_list) :
-		print(i)
+    linked_list.insert("10")
+    linked_list.insert("30")
+    linked_list.insert("15")
+    linked_list.insert("40")
+    linked_list.insert("50")
 
-	print("Remove 40: \n")
-	linked_list.remove("40")
+    print("After insertion: \n")
+    for i in iter(linked_list):
+        print(i)
 
-	for i in iter(linked_list) :
-		print(i)
+    print("Remove 40: \n")
+    linked_list.remove("40")
+
+    for i in iter(linked_list):
+        print(i)
