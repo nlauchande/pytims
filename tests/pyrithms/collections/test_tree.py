@@ -10,13 +10,11 @@ import unittest
 
 
 class TreeTest(unittest.TestCase):
-    def test_insertion(self):
-        tree = BSTTree()
 
-        tree.insert_element("10")
-        tree.insert_element("30")
-        tree.insert_element("15")
-        tree.insert_element("40")
-        tree.insert_element("50")
+    tree = BSTTree()
+    tree.insert_element("10")
+    tree.insert_element("30")
+    tree.insert_element("15")
+    tree.insert_element("40")
+    tree.insert_element("50")
 
-        return False
