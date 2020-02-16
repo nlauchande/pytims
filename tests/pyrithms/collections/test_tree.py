@@ -9,7 +9,7 @@ import pytest
 import unittest
 
 
-class LinkedTreeTest(unittest.TestCase):
+class TreeTest(unittest.TestCase):
     def test_insertion(self):
         tree = BSTTree()
 
