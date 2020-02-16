@@ -17,3 +17,4 @@ class TreeTest(unittest.TestCase):
     tree.insert_element("15")
     tree.insert_element("40")
     tree.insert_element("50")
+
